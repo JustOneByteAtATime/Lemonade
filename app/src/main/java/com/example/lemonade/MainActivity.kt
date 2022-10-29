@@ -145,14 +145,43 @@ class MainActivity : AppCompatActivity() {
      */
     private fun setViewElements() {
         val textAction: TextView = findViewById(R.id.text_action)
-        // TODO: set up a conditional that tracks the lemonadeState
+        // had to create values for the ImageView as well
+        val lemonImage: ImageView = findViewById(R.id.image_lemon_state)
 
-        // TODO: for each state, the textAction TextView should be set to the corresponding string from
-        //  the string resources file. The strings are named to match the state
+        // Set up a conditional that tracks the lemonadeState
+        when (lemonadeState)
+        {
+            SELECT ->
+            {
+                // The textAction TextView should be set to the corresponding string from
+                //  the string resources file. The strings are named to match the state
+                textAction.text = getResources().getString(R.string.lemon_select)
+                //  For each state, the lemonImage should be set to the corresponding
+                //  drawable from the drawable resources. The drawables have the same names as the strings
+                //  but remember that they are drawables, not strings.
+                lemonImage.setImageResource(R.drawable.lemon_tree)
+            }
+            SQUEEZE ->
+            {
+                textAction.text = getResources().getString(R.string.lemon_squeeze)
+                lemonImage.setImageResource(R.drawable.lemon_squeeze)
+            }
+            DRINK ->
+            {
+                textAction.text = getResources().getString(R.string.lemon_drink)
+                lemonImage.setImageResource(R.drawable.lemon_drink)
+            }
+            RESTART ->
+            {
+                textAction.text = getResources().getString(R.string.lemon_empty_glass)
+                lemonImage.setImageResource(R.drawable.lemon_restart)
+            }
 
-        // TODO: Additionally, for each state, the lemonImage should be set to the corresponding
-        //  drawable from the drawable resources. The drawables have the same names as the strings
-        //  but remember that they are drawables, not strings.
+        }
+
+
+
+
     }
 
     /**
