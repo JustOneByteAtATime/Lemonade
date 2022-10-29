@@ -111,4 +111,5 @@ class LemonadeTests : BaseTest() {
         onView(withId(R.id.image_lemon_state)).perform(click())
         testState(R.string.lemon_select, R.drawable.lemon_tree)
     }
+    // All tests passed.
 }
